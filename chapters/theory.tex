@@ -1,0 +1,65 @@
+%%% lorem.tex --- 
+%% 
+%% Filename: lorem.tex
+%% Description: 
+%% Author: Ola Leifler
+%% Maintainer: 
+%% Created: Wed Nov 10 09:59:23 2010 (CET)
+%% Version: $Id$
+%% Version: 
+%% Last-Updated: Tue Oct  4 11:58:17 2016 (+0200)
+%%           By: Ola Leifler
+%%     Update #: 7
+%% URL: 
+%% Keywords: 
+%% Compatibility: 
+%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 
+%%% Commentary: 
+%% 
+%% 
+%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 
+%%% Change log:
+%% 
+%% 
+%% RCS $Log$
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 
+%%% Code:
+
+\chapter{Theory}
+This chapter will define the terminology... 
+\label{cha:theory}
+\section{Monolithic Architecture}
+The monolithic architecture is the traditional software architecture 
+
+
+
+\section{Microservices \& Serverless}
+As a response to the inherent drawbacks of the monolith... 
+
+...
+
+While the microservices approach can solve many issues of the monolith architecture, it comes at the cost of increased effort of operating and managing deployment and scaling in a cloud environment \cite{cost_comparison_of_running_monolithic_microservice_AWS_lambda}. The serverless approach tries to mitigate this issue by handing over all server management to the cloud provider. The term serverless, in the context of this thesis will be synonymous with what is also called \textit{Function-as-a-Service} (FaaS) in which functions are the deployment unit. Despite the name, serverless functions still run on servers, however, all server and infrastructure management is managed by a third party cloud provider. One major difference between Platform-as-a-Service and FaaS is the amount of control are given to the developer \cite{serverless_computing_current_trends}. PaaS allows the provisioning of servers and deployment of applications in the cloud. In PaaS the developer generally have more control over infrastructure and the code that is deployed. In FaaS the developer have does not have any control over the infrastructure which is shared between the platform users, but have control over the code they deploy, which is in the form of independent functions. Another important difference is scaling, in PaaS idle time is often charged but in a FaaS the functions can be scaled down to zero and be spun up at the time of use. 
+
+A system built with a serverless architecture will consist of many small independent autonomous functions.
+
+
+
+
+
+...
+While the serverless architecture has significant positive aspect such as reduced costs, easier scaling and server management it also comes with significant drawbacks \cite{martin_fowler_serverless}. Some highlighted drawbacks are vendor lock-in, were the implementation is very coupled to the cloud provider, and cold starts were the start up latency of containers might be slow. 
+\subsection{Cold starts}
+A \textit{''cold start''} in the context of FaaS refers to the process of executing the a serverless function when it has scaled to zero \cite{serverless_computing_current_trends}, i.e when the cloud provider starts a container to run the code. In contrary, a \textit{''warm start''} refers to when a serverless function is invoked while a container hosting the code is already running. The cloud provider \textit{Microsoft Azure} \cite{azure_understanding_serverless_cold_start} describes the process in steps. Before a function can be executed, a server needs to be allocated, secondly the runtime of the function need to be configured and started on that server. In a warm start, the resources are already allocated and the funtion can be executed significantly faster. To speed up the cold start process, Azure keeps pools of preconfigured servers with runtimes are already running, however loading in files and settings into the memory still cause higher latency compared to warm starts. 
+
+J. Manner et. al. in the paper \textit{Cold Start Influencing Factors in Function as a Service} \cite{cold_start_influencing_factors_in_FaaS} conducts a study benchmarking the impact of cold starts on the \textit{Azure Functions }and \textit{ AWS Lamda } platforms. They find that cold starts can have significant impact on latency and that the severity of the latency is also dependent on the cloud provider and the programming language used. 
+
+
+\section{(Cloud provider)}
+
+
+\section{Related Work}
